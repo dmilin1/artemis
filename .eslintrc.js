@@ -3,6 +3,8 @@ module.exports = {
     extends: [
         'universe/native',
         'prettier',
+        'plugin:react-native-a11y/ios',
+        'plugin:react-native-a11y/android',
     ],
     rules: {
         // Ensures props and state inside functions are always up-to-date
