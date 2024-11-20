@@ -70,6 +70,9 @@ export default function SearchPage() {
       <View style={styles.searchOptionsContainer}>
         {SearchTypes.map((type) => (
           <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityLabel={`Search for ${type}`}
+            accessibilityHint={`Tap to search for ${type}`}
             key={type}
             style={t(styles.searchOption, {
               backgroundColor: searchType === type ? theme.tint : "transparent",

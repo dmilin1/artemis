@@ -11,6 +11,8 @@ export default function ErrorPage() {
       style={t(styles.errorContainer, {
         backgroundColor: theme.background,
       })}
+      accessibilityLabel="Error Page"
+      accessibilityHint="Page failed to load"
     >
       <Text style={t(styles.errorText, { color: theme.text })}>
         Error loading page

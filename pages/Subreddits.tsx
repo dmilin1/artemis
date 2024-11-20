@@ -56,6 +56,9 @@ export default function Subreddits() {
           },
         ].map((link) => (
           <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityLabel={`Navigate to ${link.title}`}
+            accessibilityHint={`Navigates to ${link.title} page`}
             key={link.title}
             onPress={() => history.pushPath(link.path)}
             activeOpacity={0.5}
@@ -126,6 +129,9 @@ export default function Subreddits() {
                 .map((subreddit) => (
                   <View key={subreddit.name}>
                     <TouchableOpacity
+                      accessibilityRole="button"
+                      accessibilityLabel={`Navigate to ${subreddit.name}`}
+                      accessibilityHint={`Navigates to ${subreddit.name} subreddit`}
                       key={subreddit.name}
                       onPress={() => history.pushPath(subreddit.url)}
                       activeOpacity={0.5}
@@ -155,6 +161,9 @@ export default function Subreddits() {
                         </Text>
                         <View style={styles.favoriteIconContainer}>
                           <TouchableOpacity
+                            accessibilityRole="button"
+                            accessibilityLabel={`Toggle favorite for ${subreddit.name}`}
+                            accessibilityHint={`Toggles the favorite status for ${subreddit.name} subreddit`}
                             onPress={() => toggleFavorite(subreddit.name)}
                             hitSlop={10}
                           >

@@ -217,6 +217,9 @@ export default function PostDetails({ url }: PostDetailsProps) {
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() => setMediaCollapsed(!mediaCollapsed)}
+                accessibilityRole="button"
+                accessibilityLabel="Toggle media visibility"
+                accessibilityHint="Toggles the visibility of the media content"
               >
                 <View style={styles.postDetailsContainer}>
                   <Text
@@ -244,6 +247,9 @@ export default function PostDetails({ url }: PostDetailsProps) {
                         onPress={() =>
                           history.pushPath(`/r/${postDetail.subreddit}`)
                         }
+                        accessibilityRole="button"
+                        accessibilityLabel={`Go to subreddit ${postDetail.subreddit}`}
+                        accessibilityHint={`Navigates to the subreddit ${postDetail.subreddit}`}
                       >
                         <SubredditIcon post={postDetail} />
                         <Text
@@ -266,6 +272,9 @@ export default function PostDetails({ url }: PostDetailsProps) {
                         onPress={() =>
                           history.pushPath(`/u/${postDetail.author}`)
                         }
+                        accessibilityRole="button"
+                        accessibilityLabel={`Go to user ${postDetail.author}`}
+                        accessibilityHint={`Navigates to the user profile of ${postDetail.author}`}
                       >
                         <Text
                           style={t(styles.boldedSmallText, {
@@ -316,6 +325,9 @@ export default function PostDetails({ url }: PostDetailsProps) {
                         : undefined,
                   })}
                   onPress={() => voteOnPost(VoteOption.UpVote)}
+                  accessibilityRole="button"
+                  accessibilityLabel="Upvote post"
+                  accessibilityHint="Upvotes the post"
                 >
                   <AntDesign
                     name="arrowup"
@@ -335,6 +347,9 @@ export default function PostDetails({ url }: PostDetailsProps) {
                         : undefined,
                   })}
                   onPress={() => voteOnPost(VoteOption.DownVote)}
+                  accessibilityRole="button"
+                  accessibilityLabel="Downvote post"
+                  accessibilityHint="Downvotes the post"
                 >
                   <AntDesign
                     name="arrowdown"
@@ -357,6 +372,13 @@ export default function PostDetails({ url }: PostDetailsProps) {
                       saved: !postDetail.saved,
                     });
                   }}
+                  accessibilityRole="button"
+                  accessibilityLabel={
+                    postDetail.saved ? "Unsave post" : "Save post"
+                  }
+                  accessibilityHint={
+                    postDetail.saved ? "Unsaves the post" : "Saves the post"
+                  }
                 >
                   <FontAwesome
                     name={postDetail.saved ? "bookmark" : "bookmark-o"}
@@ -375,6 +397,9 @@ export default function PostDetails({ url }: PostDetailsProps) {
                       />,
                     )
                   }
+                  accessibilityRole="button"
+                  accessibilityLabel="Reply to post"
+                  accessibilityHint="Opens the comment editor to reply to the post"
                 >
                   <Octicons name="reply" size={28} color={theme.iconPrimary} />
                 </TouchableOpacity>
@@ -385,6 +410,9 @@ export default function PostDetails({ url }: PostDetailsProps) {
                       history.past.slice(-1)[0]?.elem.props.url;
                     Share.share({ url: new RedditURL(currentPath).toString() });
                   }}
+                  accessibilityRole="button"
+                  accessibilityLabel="Share post"
+                  accessibilityHint="Shares the post"
                 >
                   <Feather name="share" size={28} color={theme.iconPrimary} />
                 </TouchableOpacity>
@@ -421,6 +449,9 @@ export default function PostDetails({ url }: PostDetailsProps) {
           backgroundColor: theme.buttonText,
         })}
         onPress={scrollToNextComment}
+        accessibilityRole="button"
+        accessibilityLabel="Scroll to next comment"
+        accessibilityHint="Scrolls to the next comment"
       >
         <AntDesign name="down" size={18} color="white" />
       </TouchableOpacity>

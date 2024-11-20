@@ -79,6 +79,9 @@ export default function AccountsPage(_: AccountsPageProps) {
                     }
                     setLoading(false);
                   }}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Account: ${account.username}`}
+                  accessibilityHint="Double tap to log in or log out"
                 >
                   <Text
                     style={t(styles.accountItemText, {
