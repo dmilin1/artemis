@@ -36,6 +36,8 @@ export default function MessagesPage() {
       style={t(styles.postsContainer, {
         backgroundColor: theme.background,
       })}
+      accessibilityLabel="Messages Container"
+      accessibilityHint="Displays a list of messages"
     >
       <Scroller loadMore={loadMoreMessages}>
         {messages.map((message) => (
